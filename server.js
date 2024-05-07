@@ -1,16 +1,13 @@
-'use strict';
-
 const express = require('express');
-
-// Constants
-const PORT = 3000;
-const HOST = '0.0.0.0';
-
-// App
 const app = express();
+
+// เส้นทางหลักสำหรับแสดงข้อความ "Hello, World!" บนหน้าเว็บ
 app.get('/', (req, res) => {
-  res.send('Hello World');
+  res.send('Hello, World!');
 });
 
-app.listen(PORT, HOST);
-console.log(`Running on http://${HOST}:${PORT}`);
+// ตั้งค่าพอร์ตที่เซิร์ฟเวอร์ Express จะทำงาน
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
